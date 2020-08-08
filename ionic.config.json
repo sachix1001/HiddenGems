@@ -1,0 +1,7 @@
+{
+  "name": "hiddenGems",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
