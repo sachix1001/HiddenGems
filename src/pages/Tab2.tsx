@@ -8,7 +8,6 @@ import {
 } from "@ionic/react";
 import ExploreContainer from "../components/Select";
 import "./Tab2.css";
-import { ItemSlidingExample } from "../components/ItemSlidingExample";
 
 const Tab2: React.FC = () => {
   return (
@@ -24,7 +23,6 @@ const Tab2: React.FC = () => {
             <IonTitle size="large">Tab 2</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ItemSlidingExample />
       </IonContent>
     </IonPage>
   );

@@ -2,6 +2,7 @@
   "name": "hiddenGems",
   "version": "0.0.1",
   "private": true,
+  "homepage": "https://sachix1001.github.io/HiddenGems/",
   "dependencies": {
     "@capacitor/core": "2.4.0",
     "@ionic/react": "^5.0.7",
@@ -28,6 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -46,7 +48,8 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.4.0"
+    "@capacitor/cli": "2.4.0",
+    "gh-pages": "^3.1.0"
   },
   "description": "An Ionic project"
 }

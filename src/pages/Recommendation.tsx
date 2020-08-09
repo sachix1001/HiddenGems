@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./Select.css";
-import {  RouteComponentProps, withRouter } from "react-router-dom";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 import {
   IonItem,
   IonLabel,
@@ -13,9 +12,9 @@ interface NumberOfPeopleProps {
   ageGroup: string;
 }
 
-interface SelectProps extends RouteComponentProps {}
+interface RecommendationProp extends RouteComponentProps {}
 
-const Select: React.FC<SelectProps> = ({ history }) => {
+const Recommendation: React.FC<RecommendationProp> = ({ history }) => {
   return (
     <div className="container">
       <Location></Location>
@@ -82,4 +81,4 @@ const NumberOfPeople: React.FC<NumberOfPeopleProps> = ({ ageGroup }) => {
   );
 };
 
-export default withRouter(Select);
+export default withRouter(Recommendation);

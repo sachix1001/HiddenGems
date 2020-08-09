@@ -10,14 +10,12 @@ import {
   IonTabs,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import {
-  rocketOutline,
-  searchOutline,
-  starOutline,
-} from "ionicons/icons";
+import { rocketOutline, searchOutline, starOutline } from "ionicons/icons";
 import Explore from "./pages/Explore";
 import Tab2 from "./pages/Tab2";
 import Tab3 from "./pages/Tab3";
+import Theme from "./pages/Theme";
+import Recommendation from "./pages/Recommendation";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -43,10 +41,16 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/Explore" component={Explore} exact={true} />
+          <Route path="/explore" component={Explore} exact={true} />
           <Route path="/tab2" component={Tab2} exact={true} />
           <Route path="/tab3" component={Tab3} />
-          <Route path="/" render={() => <Redirect to="/Explore" />} exact={true} />
+          <Route path="/theme" component={Theme} />
+          <Route path="/rec" component={Recommendation} />
+          <Route
+            path="/"
+            render={() => <Redirect to="/explore" />}
+            exact={true}
+          />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="explore" href="/explore">
