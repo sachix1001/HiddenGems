@@ -2,38 +2,20 @@ import React, { useState } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import {
   IonItem,
-  IonLabel,
-  IonSelectOption,
-  IonSelect,
-  IonButton,
-  IonContent,
   IonPage,
   IonHeader,
   IonToolbar,
   IonBackButton,
   IonButtons,
-  IonCard,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonCardContent,
-  IonSlides,
-  IonSlide,
-  IonImg,
+  IonContent,
 } from "@ionic/react";
 import "./Recommendation.css";
-
-interface NumberOfPeopleProps {
-  ageGroup: string;
-}
+import { tours } from "../data/tours.js";
+import TourList from "../components/TourList";
 
 interface RecommendationProp extends RouteComponentProps {}
 
 const Recommendation: React.FC<RecommendationProp> = ({ history }) => {
-  const slideOpts = {
-    initialSlide: 1,
-    speed: 400,
-  };
   return (
     <IonPage>
       <IonHeader>
@@ -43,17 +25,14 @@ const Recommendation: React.FC<RecommendationProp> = ({ history }) => {
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <div className="scrolling-wrapper-flexbox">
-        <IonCard className="card">
-          <IonImg
-            style={{ height: "10em", width: "90%" }}
-            src={`assets/cloud.png`}
-          />
-          <IonCardHeader>
-            <IonCardSubtitle>Madison, WI</IonCardSubtitle>
-          </IonCardHeader>
-        </IonCard>
-      </div>
+      <IonContent>
+        {tours.map((tour: any, index: number) => (
+          <>
+            <IonHeader>Option {index + 1}</IonHeader>
+            <TourList tour={tour} key={index}></TourList>
+          </>
+        ))}
+      </IonContent>
     </IonPage>
   );
 };

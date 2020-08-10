@@ -20,7 +20,7 @@ const Tab2: React.FC = () => {
       <IonContent>
         <IonImg
           style={{ height: "10em", width: "90%" }}
-          src={process.env.PUBLIC_URL + `/south-bank.jpg`}
+          src={process.env.PUBLIC_URL + `/assets/south-bank.jpg`}
           alt="image"
         />
       </IonContent>

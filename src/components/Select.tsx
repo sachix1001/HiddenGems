@@ -38,7 +38,7 @@ const Select: React.FC<SelectProps> = ({ history }) => {
 };
 
 const Location = () => {
-  const [location, setLocation] = useState<string>();
+  const [location, setLocation] = useState<string>('cbd');
   return (
     <IonItem>
       <IonLabel>Location</IonLabel>
@@ -52,7 +52,7 @@ const Location = () => {
   );
 };
 const Length = () => {
-  const [duration, setDuration] = useState<string>();
+  const [duration, setDuration] = useState<string>('fullDay');
   return (
     <IonItem>
       <IonLabel>Duration</IonLabel>
@@ -72,11 +72,11 @@ const NumberOfPeople: React.FC<NumberOfPeopleProps> = ({ ageGroup }) => {
     <IonItem>
       <IonLabel>{ageGroup}</IonLabel>
       <IonSelect value={number} onIonChange={(e) => setNumber(e.detail.value)}>
-        <IonSelectOption value="adult">1</IonSelectOption>
-        <IonSelectOption value="adult">2</IonSelectOption>
-        <IonSelectOption value="adult">3</IonSelectOption>
-        <IonSelectOption value="adult">4</IonSelectOption>
-        <IonSelectOption value="adult">5</IonSelectOption>
+        <IonSelectOption value="1">1</IonSelectOption>
+        <IonSelectOption value="2">2</IonSelectOption>
+        <IonSelectOption value="3">3</IonSelectOption>
+        <IonSelectOption value="4">4</IonSelectOption>
+        <IonSelectOption value="5">5</IonSelectOption>
       </IonSelect>
     </IonItem>
   );
