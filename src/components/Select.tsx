@@ -27,8 +27,8 @@ const Select: React.FC<SelectProps> = ({ history }) => {
       <br />
       <br />
       <IonButton
-        color="primary"
         expand="block"
+        className='explore-btn'
         onClick={() => history.push("/theme")}
       >
         Explore

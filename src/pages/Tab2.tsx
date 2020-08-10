@@ -5,8 +5,8 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonImg,
 } from "@ionic/react";
-import ExploreContainer from "../components/Select";
 import "./Tab2.css";
 
 const Tab2: React.FC = () => {
@@ -18,11 +18,11 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+        <IonImg
+          style={{ height: "10em", width: "90%" }}
+          src={process.env.PUBLIC_URL + `/south-bank.jpg`}
+          alt="image"
+        />
       </IonContent>
     </IonPage>
   );
