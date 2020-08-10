@@ -52,6 +52,11 @@ const App: React.FC = () => (
             render={() => <Redirect to="/explore" />}
             exact={true}
           />
+          <Route
+            path="/HiddenGems"
+            render={() => <Redirect to="/explore" />}
+            exact={true}
+          />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="explore" href="/explore">
