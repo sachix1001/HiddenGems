@@ -28,14 +28,13 @@ interface TourListSpotProp {
 }
 const TourListSpot: React.FC<TourListSpotProp> = ({ place }) => {
   return (
-    <IonCard className="card">
-      <IonHeader>{place.name}</IonHeader>
-      <IonItem>
-        <IonImg
-          style={{ height: "8em" }}
-          src={process.env.PUBLIC_URL + `/assets/${place.photo}.jpg`}
-        ></IonImg>
-      </IonItem>
+    <IonCard className="tourList-card">
+      <img
+        className="tourList-card-img"
+        src={process.env.PUBLIC_URL + `/assets/${place.photo}.jpg`}
+        alt={place.name}
+      ></img>
+      <IonHeader className='tourList-card-header'>{place.name}</IonHeader>
     </IonCard>
   );
 };

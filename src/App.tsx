@@ -1,5 +1,7 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import { GrDiamond } from "react-icons/gr";
+import { IconContext } from "react-icons";
 import {
   IonApp,
   IonIcon,
@@ -8,6 +10,7 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
+  IonImg,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { rocketOutline, searchOutline, starOutline } from "ionicons/icons";
@@ -36,6 +39,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import process from "process";
 
 const App: React.FC = () => (
   <IonApp>
@@ -69,6 +73,16 @@ const App: React.FC = () => (
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={starOutline} />
+            {/* <IconContext.Provider
+              value={{
+                size: "3em",
+                className: 'app-icon'
+              }}
+            >
+              <div>
+                <GrDiamond />
+              </div>
+            </IconContext.Provider> */}
             <IonLabel>Gems</IonLabel>
           </IonTabButton>
         </IonTabBar>

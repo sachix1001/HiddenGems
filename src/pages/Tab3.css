@@ -1,0 +1,22 @@
+.gem-content {
+  --background: linear-gradient(
+    90deg,
+    var(--ion-color-primary) 0%,
+    var(--ion-color-secondary) 100%
+  );
+}
+
+.gem-count {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.gem-count span {
+  font-size: 16px;
+}

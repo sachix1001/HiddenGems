@@ -1,23 +1,27 @@
-import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/Select';
-import './Tab3.css';
+import React from "react";
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import "./Tab3.css";
 
 const Tab3: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 3</IonTitle>
+          <IonTitle>Your Gems</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 3</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        {/* <ExploreContainer name="Tab 3 page" /> */}
+      <IonContent className="gem-content">
+        <div>
+          <h1 className="gem-count">
+            35 <span className="gem-text">gems</span>
+          </h1>
+        </div>
       </IonContent>
     </IonPage>
   );
