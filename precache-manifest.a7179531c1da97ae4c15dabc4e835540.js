@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "555f3e4de1c657f88d703cf9d7a0347b",
+    "revision": "496079ae5921a1107948e13356eb1926",
     "url": "/HiddenGems/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HiddenGems/static/css/4.0160642f.chunk.css"
   },
   {
-    "revision": "cd8d18961fd5eee458d2",
-    "url": "/HiddenGems/static/css/main.aeb142e4.chunk.css"
+    "revision": "b4bf3b8daad51b7e4e3e",
+    "url": "/HiddenGems/static/css/main.143e2000.chunk.css"
   },
   {
     "revision": "9179739e7c3dc5c15801",
@@ -252,8 +252,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HiddenGems/static/js/9.4f62ebd5.chunk.js"
   },
   {
-    "revision": "cd8d18961fd5eee458d2",
-    "url": "/HiddenGems/static/js/main.bfb7f500.chunk.js"
+    "revision": "b4bf3b8daad51b7e4e3e",
+    "url": "/HiddenGems/static/js/main.e4d17605.chunk.js"
   },
   {
     "revision": "acd9ad8a11ffbec7be81",

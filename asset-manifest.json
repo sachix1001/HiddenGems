@@ -2,9 +2,9 @@
   "files": {
     "static/js/0.1c91d0ae.chunk.js": "/HiddenGems/static/js/0.1c91d0ae.chunk.js",
     "static/js/0.1c91d0ae.chunk.js.map": "/HiddenGems/static/js/0.1c91d0ae.chunk.js.map",
-    "main.css": "/HiddenGems/static/css/main.aeb142e4.chunk.css",
-    "main.js": "/HiddenGems/static/js/main.bfb7f500.chunk.js",
-    "main.js.map": "/HiddenGems/static/js/main.bfb7f500.chunk.js.map",
+    "main.css": "/HiddenGems/static/css/main.143e2000.chunk.css",
+    "main.js": "/HiddenGems/static/js/main.e4d17605.chunk.js",
+    "main.js.map": "/HiddenGems/static/js/main.e4d17605.chunk.js.map",
     "polyfills-css-shim.js": "/HiddenGems/static/js/polyfills-css-shim.113577ae.chunk.js",
     "polyfills-css-shim.js.map": "/HiddenGems/static/js/polyfills-css-shim.113577ae.chunk.js.map",
     "runtime-main.js": "/HiddenGems/static/js/runtime-main.7d4bb98d.js",
@@ -121,10 +121,10 @@
     "static/js/58.1d7c6844.chunk.js": "/HiddenGems/static/js/58.1d7c6844.chunk.js",
     "static/js/58.1d7c6844.chunk.js.map": "/HiddenGems/static/js/58.1d7c6844.chunk.js.map",
     "index.html": "/HiddenGems/index.html",
-    "precache-manifest.8621c56e686d18a63236f3b2bf7b8a83.js": "/HiddenGems/precache-manifest.8621c56e686d18a63236f3b2bf7b8a83.js",
+    "precache-manifest.a7179531c1da97ae4c15dabc4e835540.js": "/HiddenGems/precache-manifest.a7179531c1da97ae4c15dabc4e835540.js",
     "service-worker.js": "/HiddenGems/service-worker.js",
     "static/css/4.0160642f.chunk.css.map": "/HiddenGems/static/css/4.0160642f.chunk.css.map",
-    "static/css/main.aeb142e4.chunk.css.map": "/HiddenGems/static/css/main.aeb142e4.chunk.css.map",
+    "static/css/main.143e2000.chunk.css.map": "/HiddenGems/static/css/main.143e2000.chunk.css.map",
     "static/js/14.d219e617.chunk.js.LICENSE.txt": "/HiddenGems/static/js/14.d219e617.chunk.js.LICENSE.txt",
     "static/js/4.c60e8324.chunk.js.LICENSE.txt": "/HiddenGems/static/js/4.c60e8324.chunk.js.LICENSE.txt",
     "static/js/52.04475119.chunk.js.LICENSE.txt": "/HiddenGems/static/js/52.04475119.chunk.js.LICENSE.txt",
@@ -134,7 +134,7 @@
     "static/js/runtime-main.7d4bb98d.js",
     "static/css/4.0160642f.chunk.css",
     "static/js/4.c60e8324.chunk.js",
-    "static/css/main.aeb142e4.chunk.css",
-    "static/js/main.bfb7f500.chunk.js"
+    "static/css/main.143e2000.chunk.css",
+    "static/js/main.e4d17605.chunk.js"
   ]
 }
