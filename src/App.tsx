@@ -12,12 +12,13 @@ import {
   IonTabs,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { rocketOutline, searchOutline, starOutline } from "ionicons/icons";
+import { rocketOutline, searchOutline, apertureOutline } from "ionicons/icons";
 import Explore from "./pages/Explore";
 import Tab2 from "./pages/Tab2";
 import Tab3 from "./pages/Tab3";
 import Theme from "./pages/Theme";
 import Recommendation from "./pages/Recommendation";
+import TourDetail from "./pages/TourDetail";
 import "./App.css";
 
 /* Core CSS required for Ionic components to work properly */
@@ -49,6 +50,7 @@ const App: React.FC = () => (
           <Route path="/tab3" component={Tab3} />
           <Route path="/theme" component={Theme} />
           <Route path="/rec" component={Recommendation} />
+          <Route path="/tourDetail" component={TourDetail} />
           <Route
             path="/"
             render={() => <Redirect to="/explore" />}
@@ -70,7 +72,7 @@ const App: React.FC = () => (
             <IonLabel>My Plans</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={starOutline} />
+            <IonIcon icon={apertureOutline} />
             {/* <IconContext.Provider
               value={{
                 size: "3em",

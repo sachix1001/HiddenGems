@@ -1,13 +1,9 @@
 import React from "react";
 import { IonHeader, IonCard } from "@ionic/react";
 import "./TourList.css";
+import { Place } from "../model/tourModel";
 
-interface Place {
-  name: string;
-  description: string;
-  photo: string;
-  address: string;
-}
+
 interface TourListProp {
   tour: Place[];
 }
@@ -15,8 +11,8 @@ interface TourListProp {
 const TourList: React.FC<TourListProp> = ({ tour }) => {
   return (
     <div className="scrolling-wrapper">
-      {tour.map((place) => (
-        <TourListSpot place={place}></TourListSpot>
+      {tour.map((place, index) => (
+        <TourListSpot place={place} key={index}></TourListSpot>
       ))}
     </div>
   );
