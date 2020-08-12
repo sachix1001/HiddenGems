@@ -14,7 +14,8 @@ import PlaceCard from "../components/PlaceCard";
 
 const TourDetail: React.FC = () => {
   const location = useLocation();
-  const tour = JSON.parse(JSON.stringify(location.state));
+  // const tour = JSON.parse(JSON.stringify(location.state));
+  const tour = location.state as Place[];
 
   return (
     <IonPage>
@@ -26,9 +27,7 @@ const TourDetail: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {tour.map((place: Place) => (
-          <PlaceCard place={place} />
-        ))}
+        {tour && tour.map((place: Place) => <PlaceCard place={place} />)}
       </IonContent>
     </IonPage>
   );

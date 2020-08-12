@@ -39,6 +39,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import TourMap from "./pages/TourMap";
 
 const App: React.FC = () => (
   <IonApp>
@@ -51,6 +52,7 @@ const App: React.FC = () => (
           <Route path="/theme" component={Theme} />
           <Route path="/rec" component={Recommendation} />
           <Route path="/tourDetail" component={TourDetail} />
+          <Route path="/tourMap" component={TourMap} />
           <Route
             path="/"
             render={() => <Redirect to="/explore" />}
