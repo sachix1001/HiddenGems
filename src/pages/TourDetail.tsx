@@ -6,23 +6,36 @@ import {
   IonToolbar,
   IonButtons,
   IonBackButton,
+  IonButton,
+  IonIcon,
 } from "@ionic/react";
-import { withRouter } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import { Place } from "../model/tourModel";
 import { useLocation } from "react-router-dom";
+import { mapOutline } from "ionicons/icons";
 import PlaceCard from "../components/PlaceCard";
 
-const TourDetail: React.FC = () => {
+interface TourDetailProps extends RouteComponentProps {}
+
+const TourDetail: React.FC<TourDetailProps> = ({ history }) => {
   const location = useLocation();
-  // const tour = JSON.parse(JSON.stringify(location.state));
   const tour = location.state as Place[];
+
+  function onClick(tour: Place[]) {
+    history.push({ pathname: "/tourMap", state: tour });
+  }
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonButtons>
-            <IonBackButton defaultHref="explore" />
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/rec" />
+          </IonButtons>
+          <IonButtons slot="end">
+            <IonButton onClick={() => onClick(tour)}>
+              <IonIcon icon={mapOutline} />
+            </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>

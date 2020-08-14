@@ -1,10 +1,18 @@
 import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { GOOGLE_API_KEY } from "../utils/config";
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonToolbar,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
 import Geocode from "react-geocode";
 
 const containerStyle = {
-  width: "400px",
+  width: window.innerWidth < 400 ? window.innerWidth : "400px",
   height: "400px",
 };
 
@@ -15,9 +23,8 @@ const center = {
 
 function TourMap() {
   const [map, setMap] = React.useState(null);
-  const googleKey = GOOGLE_API_KEY as string;
 
-  Geocode.setApiKey(googleKey);
+  Geocode.setApiKey(GOOGLE_API_KEY as string);
 
   Geocode.fromAddress("Russell St, South Brisbane QLD 4101").then(
     (response) => {
@@ -37,24 +44,35 @@ function TourMap() {
   }, []);
 
   return (
-    <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={8}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        <Marker
-          position={{
-            lat: 37,
-            lng: -121,
-          }}
-        ></Marker>
-        {/* Child components, such as markers, info windows, etc. */}
-        <></>
-      </GoogleMap>
-    </LoadScript>
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons>
+            <IonBackButton defaultHref="tourDetail" />
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={8}
+            onLoad={onLoad}
+            onUnmount={onUnmount}
+          >
+            <Marker
+              position={{
+                lat: 37,
+                lng: -121,
+              }}
+            ></Marker>
+            {/* Child components, such as markers, info windows, etc. */}
+            <></>
+          </GoogleMap>
+        </LoadScript>
+      </IonContent>
+    </IonPage>
   );
 }
 
