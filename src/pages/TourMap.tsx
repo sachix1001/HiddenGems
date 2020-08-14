@@ -9,7 +9,8 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/react";
-import Geocode from "react-geocode";
+import { useLocation } from "react-router-dom";
+import { Place } from "../model/tourModel";
 
 const containerStyle = {
   width: window.innerWidth < 400 ? window.innerWidth : "400px",
@@ -17,21 +18,14 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 37,
-  lng: -121,
+  lat: -27.4769536,
+  lng: 153.0135977,
 };
 
 function TourMap() {
   const [map, setMap] = React.useState(null);
-
-  Geocode.setApiKey(GOOGLE_API_KEY as string);
-
-  Geocode.fromAddress("Russell St, South Brisbane QLD 4101").then(
-    (response) => {
-      const { lat, lng } = response.results[0].geometry.location;
-      console.log(lat, lng);
-    }
-  );
+  const location = useLocation();
+  const tour = location.state as Place[];
 
   const onLoad = React.useCallback(function callback(map) {
     // const bounds = new window.google.maps.LatLngBounds();
@@ -57,17 +51,14 @@ function TourMap() {
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={8}
+            zoom={13}
             onLoad={onLoad}
             onUnmount={onUnmount}
           >
-            <Marker
-              position={{
-                lat: 37,
-                lng: -121,
-              }}
-            ></Marker>
-            {/* Child components, such as markers, info windows, etc. */}
+            {tour &&
+              tour.map((place: Place, index: number) => (
+                <Marker key={index} position={place.location}></Marker>
+              ))}
             <></>
           </GoogleMap>
         </LoadScript>
