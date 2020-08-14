@@ -11,18 +11,13 @@ import {
 import "./Recommendation.css";
 import { tours } from "../data/tours.js";
 import TourList from "../components/TourList";
+import { Place } from "../model/tourModel";
 
 interface RecommendationProp extends RouteComponentProps {}
 
-type tourType = {
-  name: string;
-  description: string;
-  photo: string;
-  address: string;
-};
 
 const Recommendation: React.FC<RecommendationProp> = ({ history }) => {
-  function onClick(tour: tourType[]) {
+  function onClick(tour: Place[]) {
     history.push({
       pathname: "/tourDetail",
       state: tour,
@@ -38,7 +33,7 @@ const Recommendation: React.FC<RecommendationProp> = ({ history }) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {tours.map((tour: tourType[], index: number) => (
+        {tours.map((tour: Place[], index: number) => (
           <div key={index} onClick={() => onClick(tour)}>
             <h4>Option {index + 1}</h4>
             <TourList tour={tour}></TourList>
