@@ -40,7 +40,10 @@ const TourDetail: React.FC<TourDetailProps> = ({ history }) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {tour && tour.map((place: Place) => <PlaceCard place={place} />)}
+        {tour &&
+          tour.map((place: Place, index: number) => (
+            <PlaceCard place={place} key={index} />
+          ))}
       </IonContent>
     </IonPage>
   );

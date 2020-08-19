@@ -1,5 +1,10 @@
-import React from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import React, { useEffect } from "react";
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
 import { GOOGLE_API_KEY } from "../utils/config";
 import {
   IonContent,
@@ -24,8 +29,22 @@ const center = {
 
 function TourMap() {
   const [map, setMap] = React.useState(null);
+  const [lat, setLat] = React.useState(-27.4769536);
+  const [lng, setLng] = React.useState(153.0135977);
+  console.log("TourMap -> lat", lat, lng);
   const location = useLocation();
   const tour = location.state as Place[];
+
+  function setPosition(position: any) {
+    setLat(position.coords.latitude);
+    setLng(position.coords.longitude);
+  }
+
+  useEffect(() => {
+    if (navigator) {
+      navigator.geolocation.getCurrentPosition(setPosition);
+    }
+  }, []);
 
   const onLoad = React.useCallback(function callback(map) {
     // const bounds = new window.google.maps.LatLngBounds();
@@ -50,7 +69,10 @@ function TourMap() {
         <LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
           <GoogleMap
             mapContainerStyle={containerStyle}
-            center={center}
+            center={{
+              lat,
+              lng,
+            }}
             zoom={13}
             onLoad={onLoad}
             onUnmount={onUnmount}

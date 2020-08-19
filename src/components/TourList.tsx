@@ -3,7 +3,6 @@ import { IonHeader, IonCard } from "@ionic/react";
 import "./TourList.css";
 import { Place } from "../model/tourModel";
 
-
 interface TourListProp {
   tour: Place[];
 }
