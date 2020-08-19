@@ -1,0 +1,15 @@
+.theme-container {
+  text-align: center;
+}
+.theme-list-container {
+  text-align: center;
+}
+
+.btn {
+  width: 80%;
+  --background: linear-gradient(
+    90deg,
+    var(--ion-color-primary) 0%,
+    var(--ion-color-secondary) 100%
+  );
+}

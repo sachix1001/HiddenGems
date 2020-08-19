@@ -1,0 +1,11 @@
+.container {
+  margin: 25px 10px;
+}
+
+.explore-btn {
+  --background: linear-gradient(
+    90deg,
+    var(--ion-color-primary) 0%,
+    var(--ion-color-secondary) 100%
+  );
+}

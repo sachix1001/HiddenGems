@@ -1,0 +1,16 @@
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.tourList-card {
+  display: inline-block;
+  width: 11em;
+}
+.tourList-card-img {
+  height: "8em";
+}
+
+.tourList-card-header {
+  text-align: center;
+}
