@@ -1,4 +1,5 @@
 export interface Place {
+  showWindow: boolean;
   name: string;
   description: string;
   photo: string;

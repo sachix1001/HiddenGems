@@ -22,35 +22,36 @@ const containerStyle = {
   height: "400px",
 };
 
-const center = {
-  lat: -27.4769536,
-  lng: 153.0135977,
-};
-
 function TourMap() {
   const [map, setMap] = React.useState(null);
   const [lat, setLat] = React.useState(-27.4769536);
   const [lng, setLng] = React.useState(153.0135977);
-  console.log("TourMap -> lat", lat, lng);
   const location = useLocation();
   const tour = location.state as Place[];
+  const [markers, setMarkers] = React.useState(tour);
 
   function setPosition(position: any) {
     setLat(position.coords.latitude);
     setLng(position.coords.longitude);
   }
 
-  useEffect(() => {
+  function handleWindow(placeName: string) {
+    const newMarkers = markers.map((place) => {
+      if (placeName === place.name) {
+        place.showWindow = true;
+      } else {
+        place.showWindow = false;
+      }
+      return place;
+    });
+    setMarkers(newMarkers);
+  }
+
+  function setGeolocation() {
     if (navigator) {
       navigator.geolocation.getCurrentPosition(setPosition);
     }
-  }, []);
-
-  const onLoad = React.useCallback(function callback(map) {
-    // const bounds = new window.google.maps.LatLngBounds();
-    // map.fitBounds(bounds);
-    // setMap(map);
-  }, []);
+  }
 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null);
@@ -74,12 +75,32 @@ function TourMap() {
               lng,
             }}
             zoom={13}
-            onLoad={onLoad}
             onUnmount={onUnmount}
           >
-            {tour &&
-              tour.map((place: Place, index: number) => (
-                <Marker key={index} position={place.location}></Marker>
+            {markers &&
+              markers.map((place: Place, index: number) => (
+                <Marker
+                  key={index}
+                  position={place.location}
+                  onClick={() => handleWindow(place.name)}
+                >
+                  {place.showWindow && (
+                    <InfoWindow position={place.location}>
+                      <div>
+                        <h6>{place.name}</h6>
+                        <div>{place.address}</div>
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${place.name
+                            .split(" ")
+                            .join("+")}`}
+                          target="_blank"
+                        >
+                          open in google maps
+                        </a>
+                      </div>
+                    </InfoWindow>
+                  )}
+                </Marker>
               ))}
             <></>
           </GoogleMap>
