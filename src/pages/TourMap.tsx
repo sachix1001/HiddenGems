@@ -16,6 +16,7 @@ import {
 } from "@ionic/react";
 import { useLocation } from "react-router-dom";
 import { Place } from "../model/tourModel";
+import TourList from "../components/TourList";
 
 const containerStyle = {
   width: window.innerWidth < 400 ? window.innerWidth : "400px",
@@ -84,30 +85,38 @@ function TourMap() {
                   position={place.location}
                   onClick={() => handleWindow(place.name)}
                 >
-                  {place.showWindow && (
-                    <InfoWindow position={place.location}>
-                      <div>
-                        <h6>{place.name}</h6>
-                        <div>{place.address}</div>
-                        <a
-                          href={`https://www.google.com/maps/search/?api=1&query=${place.name
-                            .split(" ")
-                            .join("+")}`}
-                          target="_blank"
-                        >
-                          open in google maps
-                        </a>
-                      </div>
-                    </InfoWindow>
-                  )}
+                  {place.showWindow && <MapWindow place={place} />}
                 </Marker>
               ))}
             <></>
           </GoogleMap>
         </LoadScript>
+        <TourList tour={tour}/>
       </IonContent>
     </IonPage>
   );
 }
+
+interface MapWindowProp {
+  place: Place;
+}
+
+const MapWindow: React.FC<MapWindowProp> = ({ place }) => {
+  const placeNameWithoutSpace = place.name.split(" ").join("+");
+  return (
+    <InfoWindow position={place.location}>
+      <div>
+        <h6>{place.name}</h6>
+        <div>{place.address}</div>
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${placeNameWithoutSpace}`}
+          target="_blank"
+        >
+          open in google maps
+        </a>
+      </div>
+    </InfoWindow>
+  );
+};
 
 export default React.memo(TourMap);

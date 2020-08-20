@@ -10,7 +10,7 @@ interface TourListProp {
 const TourList: React.FC<TourListProp> = ({ tour }) => {
   return (
     <div className="scrolling-wrapper">
-      {tour.map((place, index) => (
+      {tour && tour.map((place, index) => (
         <TourListSpot place={place} key={index}></TourListSpot>
       ))}
     </div>
