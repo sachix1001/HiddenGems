@@ -19,7 +19,7 @@ interface ThemeProps extends RouteComponentProps {}
 const Theme: React.FC<ThemeProps> = ({ history }) => {
   const ThemeArr = [
     "Sightseeing",
-    "Adventure",
+    "Graffiti",
     "Nature",
     "History tour",
     "Food and Gastronomy",

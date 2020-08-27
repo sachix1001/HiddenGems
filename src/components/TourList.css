@@ -5,12 +5,20 @@
 }
 .tourList-card {
   display: inline-block;
-  width: 11em;
+  width: 60%;
+  height: 14em;
+  white-space: normal;
 }
 .tourList-card-img {
-  height: "8em";
+  height: "9em";
 }
 
 .tourList-card-header {
   text-align: center;
+  padding: 5px;
+}
+
+.tourList-card-content {
+  font-size: 11px;
+  padding: 5px;
 }

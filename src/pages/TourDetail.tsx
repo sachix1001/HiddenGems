@@ -19,11 +19,21 @@ interface TourDetailProps extends RouteComponentProps {}
 
 const TourDetail: React.FC<TourDetailProps> = ({ history }) => {
   const location = useLocation();
-  const tour = location.state as Place[];
+  const tour = (() => {
+    if (Array.isArray(location.state)) {
+      return location.state as Place[];
+    }
+  })();
+
+  // Array.isArray(location.state)
+  //   ? (location.state as Place[])
+  //   : undefined;
 
   function onClick(tour: Place[]) {
     history.push({ pathname: "/tourMap", state: tour });
   }
+
+  console.log("tour", tour);
 
   return (
     <IonPage>
@@ -33,7 +43,11 @@ const TourDetail: React.FC<TourDetailProps> = ({ history }) => {
             <IonBackButton defaultHref="/rec" />
           </IonButtons>
           <IonButtons slot="end">
-            <IonButton onClick={() => onClick(tour)}>
+            <IonButton
+              onClick={() => {
+                if (tour) onClick(tour);
+              }}
+            >
               <IonIcon icon={mapOutline} />
             </IonButton>
           </IonButtons>

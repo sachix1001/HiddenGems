@@ -9,7 +9,7 @@ import {
   IonContent,
 } from "@ionic/react";
 import "./Recommendation.css";
-import { tours } from "../data/tours.js";
+import { tours, allTours } from "../data/tours.js";
 import TourList from "../components/TourList";
 import { Place } from "../model/tourModel";
 
@@ -17,6 +17,7 @@ interface RecommendationProp extends RouteComponentProps {}
 
 
 const Recommendation: React.FC<RecommendationProp> = ({ history }) => {
+  
   function onClick(tour: Place[]) {
     history.push({
       pathname: "/tourDetail",

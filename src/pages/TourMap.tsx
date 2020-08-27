@@ -1,9 +1,12 @@
+
 import React, { useEffect } from "react";
 import {
   GoogleMap,
   LoadScript,
   Marker,
   InfoWindow,
+  DirectionsService,
+  DirectionsRenderer,
 } from "@react-google-maps/api";
 import { GOOGLE_API_KEY } from "../utils/config";
 import {
@@ -20,13 +23,14 @@ import TourList from "../components/TourList";
 
 const containerStyle = {
   width: window.innerWidth < 400 ? window.innerWidth : "400px",
-  height: "400px",
+  height: "70%",
 };
 
 function TourMap() {
   const [map, setMap] = React.useState(null);
   const [lat, setLat] = React.useState(-27.4769536);
   const [lng, setLng] = React.useState(153.0135977);
+  const [response, setResponse] = React.useState<any>(null);
   const location = useLocation();
   const tour = location.state as Place[];
   const [markers, setMarkers] = React.useState(tour);
@@ -34,6 +38,18 @@ function TourMap() {
   function setPosition(position: any) {
     setLat(position.coords.latitude);
     setLng(position.coords.longitude);
+  }
+
+  function directionsCallback(response: any) {
+    console.log(response);
+
+    if (response !== null) {
+      if (response.status === "OK") {
+        setResponse(response);
+      } else {
+        console.log("response: ", response);
+      }
+    }
   }
 
   function handleWindow(placeName: string) {
@@ -48,7 +64,7 @@ function TourMap() {
     setMarkers(newMarkers);
   }
 
-  function setGeolocation() {
+  function setCurrentLocation() {
     if (navigator) {
       navigator.geolocation.getCurrentPosition(setPosition);
     }
@@ -88,10 +104,30 @@ function TourMap() {
                   {place.showWindow && <MapWindow place={place} />}
                 </Marker>
               ))}
-            <></>
+            {/* <DirectionsService
+              // required
+              options={{
+                destination: "mooloolaba",
+                origin: "Maroochydore",
+                travelMode: "DRIVING" as google.maps.TravelMode,
+                waypoints: markers.map((place) => {
+                  return { location: place.address };
+                }),
+              }}
+              // required
+              callback={(res) => directionsCallback(res)}
+            /> */}
+            {/* {response !== null && (
+              <DirectionsRenderer
+                // required
+                options={{
+                  directions: response,
+                }}
+              />
+            )} */}
           </GoogleMap>
         </LoadScript>
-        <TourList tour={tour}/>
+        <TourList tour={tour} handleWindow={handleWindow} />
       </IonContent>
     </IonPage>
   );
